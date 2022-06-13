@@ -1,0 +1,97 @@
+<div>
+    <kendo-grid
+      [kendoGridBinding]="gridView"
+      [pageSize]="20"
+      [pageable]="true"
+      [sortable]="true"
+      [groupable]="true"
+      [reorderable]="true"
+      [resizable]="true"
+      [height]="450"
+      [columnMenu]="{ filter: true }"
+    >
+      <ng-template kendoGridToolbarTemplate>
+        <input
+          [style.width.px]="165"
+          placeholder="Search in all columns..."
+          kendoTextBox
+          (input)="onFilter($event)"
+        />
+        <kendo-grid-spacer></kendo-grid-spacer>
+        <button kendoGridExcelCommand type="button" icon="file-excel">
+          Export to Excel
+        </button>
+        <!-- <button kendoGridPDFCommand icon="file-pdf">Export to PDF</button> -->
+      </ng-template>
+      <!-- <kendo-grid-checkbox-column
+        [width]="45"
+        [headerClass]="{ 'text-center': true }"
+        [class]="{ 'text-center': true }"
+        [resizable]="false"
+        [columnMenu]="false"
+        [showSelectAll]="true"
+      ></kendo-grid-checkbox-column> -->
+  
+      <!-- <kendo-grid-column-group title="User Details" [columnMenu]="false"> -->
+        <kendo-grid-column
+          field="uuid"
+          title="Unique ID"
+          [width]="140"
+        ></kendo-grid-column>
+        <kendo-grid-column
+          field="inboxesAuthId"
+          title="User Token Id"
+          [width]="180"
+        ></kendo-grid-column>
+        <kendo-grid-column
+          field="body"
+          title="Notes"
+          [width]="180"
+        ></kendo-grid-column>
+        <kendo-grid-column
+          field="byline"
+          title="Signature"
+          [width]="180"
+        ></kendo-grid-column>
+        <kendo-grid-column
+          field="byline"
+          title="archived"
+          [width]="180"
+        ></kendo-grid-column>
+        <kendo-grid-column
+          field="timestamp"
+          title="Sent Time"
+          [width]="180">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.timestamp |date :'medium' }}
+          </ng-template>
+        </kendo-grid-column>
+        <kendo-grid-column
+        field="inboxesAuth"
+        title="Auth Accounts"
+        [width]="180"
+      ></kendo-grid-column>
+        <!-- <kendo-grid-column
+          field="roleId"
+          title="Role"
+          [width]="120"
+        ></kendo-grid-column> -->
+      <!-- </kendo-grid-column-group> -->
+      <!-- <kendo-grid-column-group title="Other Details" [columnMenu]="false">
+        <kendo-grid-column
+          field="optionalMobile"
+          title="Optional Mobile"
+          [width]="180"
+        ></kendo-grid-column>
+        <kendo-grid-column
+          field="userAddress"
+          title="Address"
+          [width]="180"
+        ></kendo-grid-column>
+      </kendo-grid-column-group> -->
+      <!-- <kendo-grid-column-group title="Actions" [columnMenu]="false"> -->
+      <!-- </kendo-grid-column-group>   -->
+      <kendo-grid-pdf fileName="User.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+      <kendo-grid-excel fileName="User.xlsx"></kendo-grid-excel>
+    </kendo-grid>
+  </div>
