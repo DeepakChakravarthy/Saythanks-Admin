@@ -104,6 +104,7 @@
               "src/styles/app.scss"
             ],
             "assets": [
+              "src/_redirects",
               "src/assets",
               "src/favicon.ico"
             ]
