@@ -32,7 +32,6 @@
               "src/styles/app.scss"
             ],
             "scripts": [
-              "node_modules/chart.js/dist/Chart.js",
               "./node_modules/jquery/dist/jquery.min.js"
             ],
             "allowedCommonJsDependencies": [
@@ -97,9 +96,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "scripts": [
-              "node_modules/chart.js/dist/Chart.js"
-            ],
+            "scripts": [] ,
             "styles": [
               {
                 "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
